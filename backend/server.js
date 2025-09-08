@@ -12,7 +12,15 @@ const app = express();
 app.use(express.json());
 app.use(morgan("dev"));
 const allowed = [process.env.CLIENT_URL || "http://localhost:5173", "http://localhost:5174"];
-app.use(cors({ origin: allowed, credentials: true }));
+app.use(cors({
+  origin: [
+    "http://localhost:5173",                
+    "https://ds-asheetwebapp-opn3.vercel.app" 
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+// app.use(cors({ origin: allowed, credentials: true }));
 
 app.get("/", (req, res) => res.send("DSA Sheet API"));
 app.use("/api/auth", authRoutes);
