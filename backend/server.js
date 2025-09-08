@@ -18,5 +18,5 @@ app.get("/", (req, res) => res.send("DSA Sheet API"));
 app.use("/api/auth", authRoutes);
 app.use("/api/topics", topicRoutes);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
 app.listen(port, () => console.log(`API running on ${port}`));
