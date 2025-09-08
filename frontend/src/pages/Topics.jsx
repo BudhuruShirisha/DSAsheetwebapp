@@ -3,7 +3,7 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Collapse, Table, Badge } from "react-bootstrap";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-
+const API_URL = process.env.REACT_APP_API_URL;
 const Topics = () => {
   const [openTopic, setOpenTopic] = useState(null);
   const [topics, setTopics] = useState([]);
@@ -11,7 +11,7 @@ const Topics = () => {
  useEffect(() => {
   const fetchTopics = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/topics", {
+      const res = await axios.get(`${API_URL}/api/topics`, {
   headers: {
     Authorization: `Bearer ${localStorage.getItem("token")}`,
   },
@@ -60,7 +60,7 @@ const handleSubtopicChange = async (topicId, subIdx) => {
   // ✅ Save to backend
   try {
     await axios.put(
-      `http://localhost:5000/api/topics/update/${topicId}`,
+      `${API_URL}/api/topics/update/${topicId}`,
       { subIdx },
       {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
