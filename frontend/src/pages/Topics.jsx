@@ -60,7 +60,7 @@ const handleSubtopicChange = async (topicId, subIdx) => {
   // ✅ Save to backend
   try {
     await axios.put(
-      `${API_URL}/api/topics/update/${topicId}`,
+      `${CONSTANTS.API_BASE_URL}/api/topics/update/${topicId}`,
       { subIdx },
       {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
