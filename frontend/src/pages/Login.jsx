@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-const API_URL = process.env.REACT_APP_API_URL;
+import { CONSTANTS } from "../constants";
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -13,7 +13,7 @@ export default function Login() {
         e.preventDefault();
         setErr('');
         try {
-            const res = await axios.post(`${API_URL}/api/auth/login`, {
+            const res = await axios.post(`${CONSTANTS.API_BASE_URL}/api/auth/login`, {
                 email,
                 password,
             });

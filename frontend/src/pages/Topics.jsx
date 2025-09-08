@@ -3,7 +3,7 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Collapse, Table, Badge } from "react-bootstrap";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-const API_URL = process.env.REACT_APP_API_URL;
+import { CONSTANTS } from "../constants";
 const Topics = () => {
   const [openTopic, setOpenTopic] = useState(null);
   const [topics, setTopics] = useState([]);
@@ -11,7 +11,7 @@ const Topics = () => {
  useEffect(() => {
   const fetchTopics = async () => {
     try {
-      const res = await axios.get(`${API_URL}/api/topics`, {
+      const res = await axios.get(`${CONSTANTS.API_BASE_URL}/api/topics`, {
   headers: {
     Authorization: `Bearer ${localStorage.getItem("token")}`,
   },
