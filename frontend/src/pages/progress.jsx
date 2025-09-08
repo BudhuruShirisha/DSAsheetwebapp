@@ -4,7 +4,6 @@ import { CONSTANTS } from "../constants";
 
 export default function TopicStats() {
   const [stats, setStats] = useState({ EASY: 0, MEDIUM: 0, HARD: 0 });
-const API_URL = process.env.REACT_APP_API_URL;
  useEffect(() => {
   axios
     .get(`${CONSTANTS.API_BASE_URL}/api/topics/subtopicsdata`, {
