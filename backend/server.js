@@ -13,10 +13,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 const allowed = [process.env.CLIENT_URL || "http://localhost:5173", "http://localhost:5174"];
 app.use(cors({
-  origin: [
-    "http://localhost:5173",                
-    "https://ds-asheetwebapp-opn3.vercel.app" 
-  ],
+  origin: '*',
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
