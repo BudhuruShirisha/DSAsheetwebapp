@@ -10,7 +10,8 @@ root/
 └── README.md
 
 Clone the repository
-git clone https://github.com/BudhuruShirisha/DSAsheetwebapp.git
+git clone "https://github.com/BudhuruShirisha/DSAsheetwebapp.git"
+
 cd DSAsheetwebapp
 
 Install dependencies
